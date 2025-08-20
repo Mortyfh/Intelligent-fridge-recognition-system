@@ -1,0 +1,13 @@
+__pycache__/ 
+*.py[cod] 
+.vscode/ 
+.venv/ 
+venv/ 
+data/ 
+runs/ 
+outputs/ 
+model/ 
+*.onnx 
+*.pth 
+*.mp4 
+*.mov
