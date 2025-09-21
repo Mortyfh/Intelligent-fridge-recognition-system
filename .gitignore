@@ -1,13 +1,24 @@
-__pycache__/ 
-*.py[cod] 
-.vscode/ 
-.venv/ 
-venv/ 
-data/ 
-runs/ 
-outputs/ 
-model/ 
-*.onnx 
-*.pth 
-*.mp4 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / IDE
+.DS_Store
+.vscode/
+*.ipynb_checkpoints
+.venv/
+env/
+venv/
+
+# Project outputs & data
+runs/
+data/
+*.mp4
 *.mov
+*.zip
+data/__MACOSX/
+
+# Models (通常不要入库；若要入库，删除下一行)
+model/*.onnx
+!model/README.md

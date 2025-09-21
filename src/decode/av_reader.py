@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 from typing import Generator, Optional, Tuple
 
-# 优先尝试 PyAV(FFmpeg)
+# Try PyAV(FFmpeg) first
 HAVE_AV = False
 try:
     import av  # type: ignore
@@ -21,11 +21,11 @@ def frames_from_source(
     timeout_ms: Optional[int] = None,
 ) -> Generator[Tuple[np.ndarray, float, int], None, None]:
     """
-    解码任意视频/RTSP 源，逐帧输出 (frame_bgr, pts_seconds, frame_index)。
-    优先 PyAV；若未安装/导入失败，则自动回退到 OpenCV VideoCapture。
+    Decode any video/RTSP source and yield (frame_bgr, pts_seconds, frame_index) per frame.
+    Prefers PyAV; automatically falls back to OpenCV VideoCapture if PyAV is unavailable.
     """
     if HAVE_AV:
-        # ---------- PyAV 路径 ----------
+        # ---------- PyAV  ----------
         open_opts = {}
         if str(src).lower().startswith('rtsp') and rtsp_tcp:
             open_opts['rtsp_transport'] = 'tcp'
